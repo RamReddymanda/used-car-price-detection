@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>car price detection</title>
+   <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+}
+.form-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+h1 {
+    text-align: center;
+   color: #333;
+    margin-bottom: 20px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+   margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;}
+
+input[type="number"], 
+textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+input[type="number"]:focus, 
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #0056b3;
+}
+a {
+    text-align: center;
+    color: #007bff;
+    margin-top: 15px;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+#display {
+    text-align: center;
+    margin-top: 20px;
+    color: #28a745;
+    font-weight: bold;
+}
+
+</style>
+</head>
+<body>
+  
+       
+    <div class="form-container">
+        <h1>car price detection</h1>
+        <form method="post" action="/predict">
+            <label for="km">Kilometers</label>
+            <input type="number" id="km" name="km" placeholder="Enter total KM" value="{{km}}">
+
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" placeholder="Enter age" value="{{age}}">
+
+            <label for="make">Make</label>
+            <textarea rows="1" cols="10" id="make" name="make" placeholder="Enter Make name" autocomplete="off">{{make}}</textarea>
+
+            <label for="model">Model</label>
+            <textarea rows="1" cols="10" id="model" name="model" placeholder="Enter Model name" autocomplete="off">{{model}}</textarea>
+
+            <label for="drivetrain">Drivetrain</label>
+            <textarea rows="1" cols="10" id="drivetrain" name="drivetrain" placeholder="Enter drivetrain" autocomplete="off">{{drivetrain}}</textarea>
+
+            <label for="transmission">Transmission</label>
+            <textarea rows="1" cols="10" id="transmission" name="transmission" placeholder="Enter transmission" autocomplete="off">{{transmission}}</textarea>
+
+            <label for="state">State</label>
+            <textarea rows="1" cols="10" id="state" name="state" placeholder="Enter your state" autocomplete="off">{{state}}</textarea>
+
+            <label for="city">City</label>
+            <textarea rows="1" cols="10" id="city" name="city" placeholder="Enter your city" autocomplete="off">{{city}}</textarea>
+
+            <label for="trim">Trim</label>
+            <textarea rows="1" cols="10" id="trim" name="trim" placeholder="Enter trim" autocomplete="off">{{trim}}</textarea>
+
+            <label for="body_type">Body Type</label>
+    
+            <textarea rows="1" cols="10" id="body_type" name="body_type" placeholder="Enter body type" autocomplete="off">{{bodytype}}</textarea>
+
+            <label for="vehicle_type">Vehicle Type</label>
+            <textarea rows="1" cols="10" id="vehicle_type" name="vehicle_type" placeholder="Enter vehicle type" autocomplete="off">{{vehicletype}}</textarea>
+
+            <label for="price">Price</label>
+            <input id="price" name="price" type="number" placeholder="Enter price" value="{{price}}">
+            <button type="submit">Submit</button>
+            <a href="/">Reset</a>
+        </form>
+        <h1>Predicted Car Price</h1>
+        <p id="display">${{prediction}}</p>
+    </div>
+</body>
+    </html>
